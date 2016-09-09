@@ -3,8 +3,9 @@
 import React, { PropTypes } from 'react';
 import ReactNative, { requireNativeComponent, View } from 'react-native';
 
+import PureRenderMixin from "react-addons-pure-render-mixin";
 var {
-    addons: { PureRenderMixin },
+    // addons: { PureRenderMixin },
     NativeModules: { UIManager, CrosswalkWebViewManager: { JSNavigationScheme } }
 } = ReactNative;
 
