@@ -1,5 +1,5 @@
 # react-native-webview-crosswalk
-Crosswalk's WebView for React Native on Android.
+Crosswalk's WebView for React Native on Android. Add JSBridge ability
 
 [![npm version](http://img.shields.io/npm/v/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk "View this project on npm")
 [![npm downloads](http://img.shields.io/npm/dm/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk "View this project on npm")
