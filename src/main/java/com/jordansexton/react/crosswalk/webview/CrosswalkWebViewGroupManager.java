@@ -11,7 +11,7 @@ import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import org.xwalk.core.XWalkNavigationHistory;
 import org.xwalk.core.XWalkView;
-
+import com.facebook.react.bridge.ReactContext;
 import javax.annotation.Nullable;
 import java.util.Map;
 
@@ -22,6 +22,9 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
     public static final int GO_FORWARD = 2;
 
     public static final int RELOAD = 3;
+   
+    public static final int COMMAND_INJECT_BRIDGE_SCRIPT = 100;
+  public static final int COMMAND_SEND_TO_BRIDGE = 101;
 
     @VisibleForTesting
     public static final String REACT_CLASS = "CrosswalkWebView";
@@ -29,9 +32,10 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
     private ReactApplicationContext reactContext;
 
     private static final String BLANK_URL = "about:blank";
-
+private boolean initializedBridge;
     public CrosswalkWebViewGroupManager (ReactApplicationContext _reactContext) {
         reactContext = _reactContext;
+        initializedBridge= false;
     }
 
     @Override
@@ -113,14 +117,18 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
     @Nullable
     Map<String, Integer> getCommandsMap () {
         return MapBuilder.of(
-            "goBack", GO_BACK,
-            "goForward", GO_FORWARD,
-            "reload", RELOAD
+            // "goBack", GO_BACK,
+            // "goForward", GO_FORWARD,
+            // "reload", RELOAD,
+            "injectBridgeScript", COMMAND_INJECT_BRIDGE_SCRIPT,
+            "sendToBridge", COMMAND_SEND_TO_BRIDGE
         );
     }
 
     @Override
     public void receiveCommand (CrosswalkWebView view, int commandId, @Nullable ReadableArray args) {
+        super.receiveCommand(view, commandId, args);
+
         switch (commandId) {
             case GO_BACK:
                 view.getNavigationHistory().navigate(XWalkNavigationHistory.Direction.BACKWARD, 1);
@@ -130,6 +138,12 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
                 break;
             case RELOAD:
                 view.reload(XWalkView.RELOAD_NORMAL);
+                break;
+            case COMMAND_INJECT_BRIDGE_SCRIPT:
+                injectBridgeScript(view);
+                break;
+            case COMMAND_SEND_TO_BRIDGE:
+                sendToBridge(view, args.getString(0));
                 break;
         }
     }
@@ -143,4 +157,43 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
             MapBuilder.of("registrationName", "onError")
         );
     }
+
+    private void sendToBridge(CrosswalkWebView root, String message) {
+    //root.loadUrl("javascript:(function() {\n" + script + ";\n})();");
+    String script = "WebViewBridge.onMessage('" + message + "');";
+    CrosswalkWebViewGroupManager.evaluateJavascript(root, script);
+  }
+
+  private void injectBridgeScript(CrosswalkWebView root) {
+    //this code needs to be called once per context
+    if (!initializedBridge) {
+      root.addJavascriptInterface(new JavascriptBridge((ReactContext) root.getContext()), "WebViewBridgeAndroid");
+      initializedBridge = true;
+      root.reload(XWalkView.RELOAD_NORMAL);
+    }
+
+    // this code needs to be executed everytime a url changes.
+    CrosswalkWebViewGroupManager.evaluateJavascript(root, ""
+            +"alert('eval js from java');"
+            + "(function() {"
+            + "if (window.WebViewBridge) return;"
+            + "var customEvent = document.createEvent('Event');"
+            + "var WebViewBridge = {"
+              + "send: function(message) { WebViewBridgeAndroid.send(message); },"
+              + "onMessage: function() {}"
+            + "};"
+            + "window.WebViewBridge = WebViewBridge;"
+            + "customEvent.initEvent('WebViewBridge', true, true);"
+            + "document.dispatchEvent(customEvent);"
+            + "}());");
+  }
+
+  static private void evaluateJavascript(CrosswalkWebView root, String javascript) {
+    // root.evaluateJavascript(javascript, null);
+    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+      root.evaluateJavascript(javascript, null);
+    } else {
+      root.load("javascript:" + javascript,null);
+    }
+  }
 }

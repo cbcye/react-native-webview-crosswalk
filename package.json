@@ -1,49 +1,110 @@
 {
-    "name":             "react-native-webview-crosswalk",
-    "version":          "0.3.0",
-    "description":      "Crosswalk's WebView for React Native on Android",
-    "scripts":          {
-        "postinstall": "node get_library.js",
-        "lint":        "eslint ."
+  "_args": [
+    [
+      {
+        "hosted": {
+          "directUrl": "https://raw.githubusercontent.com/jordansexton/react-native-webview-crosswalk/v0.3.0/package.json",
+          "gitUrl": "git://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+          "httpsUrl": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+          "shortcut": "github:jordansexton/react-native-webview-crosswalk#v0.3.0",
+          "ssh": "git@github.com:jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+          "sshUrl": "git+ssh://git@github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+          "type": "github"
+        },
+        "name": null,
+        "raw": "https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+        "rawSpec": "https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+        "scope": null,
+        "spec": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+        "type": "hosted"
+      },
+      "/work/app/reactnative/Huola"
+    ]
+  ],
+  "_from": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+  "_id": "react-native-webview-crosswalk@0.3.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-webview-crosswalk",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/jordansexton/react-native-webview-crosswalk/v0.3.0/package.json",
+      "gitUrl": "git://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+      "httpsUrl": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+      "shortcut": "github:jordansexton/react-native-webview-crosswalk#v0.3.0",
+      "ssh": "git@github.com:jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+      "sshUrl": "git+ssh://git@github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+      "type": "github"
     },
-    "repository":       {
-        "type": "git",
-        "url":  "git+https://github.com/jordansexton/react-native-webview-crosswalk.git"
+    "name": null,
+    "raw": "https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+    "rawSpec": "https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+    "scope": null,
+    "spec": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git#81a29576b867649014a5a31b416dfd69fa375d68",
+  "_shasum": "ba9a666dc6539b11bff31678919b8670db15fcb3",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/jordansexton/react-native-webview-crosswalk.git#v0.3.0",
+  "_where": "/work/app/reactnative/Huola",
+  "author": {
+    "email": "jordan@jordansexton.com",
+    "name": "Jordan Sexton"
+  },
+  "bugs": {
+    "url": "https://github.com/jordansexton/react-native-webview-crosswalk/issues"
+  },
+  "contributors": [
+    {
+      "email": "jordan@jordansexton.com",
+      "name": "Jordan Sexton"
     },
-    "keywords":         [
-        "react",
-        "native",
-        "react native",
-        "webview",
-        "crosswalk",
-        "xwalk",
-        "android"
-    ],
-    "author":           "Jordan Sexton <jordan@jordansexton.com>",
-    "contributors":     [
-        {
-            "name":  "Jordan Sexton",
-            "email": "jordan@jordansexton.com"
-        }, {
-            "name":  "Faruq Rasid",
-            "email": "github@ruqqq.sg"
-        }
-    ],
-    "license":          "MIT",
-    "bugs":             {
-        "url": "https://github.com/jordansexton/react-native-webview-crosswalk/issues"
-    },
-    "homepage":         "https://github.com/jordansexton/react-native-webview-crosswalk",
-    "peerDependencies": {
-        "react":        ">=15.2.0",
-        "react-native": ">=0.29.0"
-    },
-    "dependencies":     {
-        "node-wget": "0.4.2"
-    },
-    "devDependencies":  {
-        "babel-eslint":        "6.1.2",
-        "eslint":              "3.2.2",
-        "eslint-plugin-react": "6.0.0"
+    {
+      "email": "github@ruqqq.sg",
+      "name": "Faruq Rasid"
     }
+  ],
+  "dependencies": {
+    "node-wget": "0.4.2"
+  },
+  "description": "Crosswalk's WebView for React Native on Android",
+  "devDependencies": {
+    "babel-eslint": "6.1.2",
+    "eslint": "3.2.2",
+    "eslint-plugin-react": "6.0.0"
+  },
+  "gitHead": "81a29576b867649014a5a31b416dfd69fa375d68",
+  "homepage": "https://github.com/jordansexton/react-native-webview-crosswalk",
+  "keywords": [
+    "react",
+    "native",
+    "react native",
+    "webview",
+    "crosswalk",
+    "xwalk",
+    "android"
+  ],
+  "license": "MIT",
+  "name": "react-native-webview-crosswalk",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=15.2.0",
+    "react-native": ">=0.29.0"
+  },
+  "readme": "# react-native-webview-crosswalk\nCrosswalk's WebView for React Native on Android.\n\n[![npm version](http://img.shields.io/npm/v/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk \"View this project on npm\")\n[![npm downloads](http://img.shields.io/npm/dm/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk \"View this project on npm\")\n[![npm licence](http://img.shields.io/npm/l/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk \"View this project on npm\")\n\n### Dependencies\n\n* [0.3.0](https://github.com/jordansexton/react-native-webview-crosswalk/releases/tag/v0.3.0)+: `react-native >=0.29.0`, `react >= 15.2.0`\n\n* [0.2.0](https://github.com/jordansexton/react-native-webview-crosswalk/releases/tag/v0.2.0)+: `react-native >=0.25.0`, `react >= 0.14.5`\n\n* [0.1.0](https://github.com/jordansexton/react-native-webview-crosswalk/releases/tag/v0.1.0): `react-native >= 0.19.0`\n\n### Installation\n\n* From the root of your React Native project\n\n```shell\nnpm install react-native-webview-crosswalk --save\nmkdir android/app/libs\ncp node_modules/react-native-webview-crosswalk/libs/xwalk_core_library-18.48.477.13.aar android/app/libs/\n```\n\n### Include module in your Android project\n\n* In `android/setting.gradle`\n\n```gradle\n...\ninclude ':CrosswalkWebView', ':app'\nproject(':CrosswalkWebView').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview-crosswalk')\n```\n\n### Include libs in your Android project\n\n* In `android/build.gradle`\n\n```gradle\n...\nallprojects {\n    repositories {\n        mavenLocal()\n        jcenter()\n\n        flatDir {          // <--- add this line\n            dirs 'libs'    // <--- add this line\n        }                  // <--- add this line\n    }\n}\n```\n\n* In `android/app/build.gradle`\n\n```gradle\n...\ndependencies {\n  ...\n  compile (name: \"xwalk_core_library-18.48.477.13\", ext: \"aar\")    // <--- add this line\n  compile project(':CrosswalkWebView')                             // <--- add this line\n}\n```\n\n* Register package in MainActivity.java\n\n```java\nimport com.jordansexton.react.crosswalk.webview.CrosswalkWebViewPackage;    // <--- add this line\n\npublic class MainActivity extends ReactActivity {\n  ......\n\n  @Override\n  protected List<ReactPackage> getPackages() {\n    return Arrays.<ReactPackage>asList(\n        new MainReactPackage(),\n        new CrosswalkWebViewPackage(this)    // <--- add this line\n    );\n  }\n\n  ......\n\n}\n```\n\n## License\nMIT\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "postinstall": "node get_library.js"
+  },
+  "version": "0.3.0"
 }
